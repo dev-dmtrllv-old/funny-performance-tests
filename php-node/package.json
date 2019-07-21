@@ -1,0 +1,15 @@
+{
+	"name": "php-node",
+	"version": "1.0.0",
+	"description": "",
+	"main": "loops.js",
+	"scripts": {
+		"start": "node ./run"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"microtime": "^3.0.0"
+	}
+}
