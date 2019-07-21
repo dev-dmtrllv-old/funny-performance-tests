@@ -33,12 +33,7 @@ const time = (microtime.nowDouble() - start) * 1000;
 
 timers.node.timers.push(time);
 
-let total = 0;
-
-for (let i = 0; i < timers.node.timers.length; i++)
-	total += timers.node.timers[i];
-
-timers.node.total += total;
-timers.node.average = total / timers.node.timers.length;
+timers.node.total += time;
+timers.node.average = timers.node.total / timers.node.timers.length;
 
 writeFileSync(timerPath, JSON.stringify(timers, null, 4), "utf-8");

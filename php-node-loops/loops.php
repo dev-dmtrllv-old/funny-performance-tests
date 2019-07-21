@@ -25,18 +25,12 @@ for($i = 1; $i <= 10000; $i++)
 
 $end_time = microtime(true);
 
-$execution_time = ($end_time - $start_time) * 1000;
+$time = ($end_time - $start_time) * 1000;
 
-array_push($timers->php->timers, $execution_time);
+array_push($timers->php->timers, $time);
 
-$total = 0;
-for($i = 0; $i < count($timers->php->timers); $i++)
-{
-	$time = $timers->php->timers[$i];
-	$total += $time;
-}
-$timers->php->total += $total;
-$timers->php->average = $total / count($timers->php->timers);
+$timers->php->total += $time;
+$timers->php->average = $timers->php->total / count($timers->php->timers);
 
 file_put_contents("./timers.json", json_encode($timers, JSON_PRETTY_PRINT));
 
