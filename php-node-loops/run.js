@@ -27,7 +27,8 @@ if (showLastTest && !existsSync(timerPath))
 }
 else if (showLastTest)
 {
-	console.log(`The last test ran`, +loops, `loops,`, +tests, `times...`);
+	const { loopInfo } = require(timerPath);
+	console.log(`The last test ran`, +loopInfo.loops, `loops,`, +loopInfo.tests, `times...`);
 }
 else
 {
@@ -56,10 +57,15 @@ const endCalculation = {
 		faster,
 		averageDiff,
 		totalDiff
+	},
+	loopInfo: {
+		tests,
+		loops
 	}
 };
 
-writeFile(timerPath, JSON.stringify(endCalculation, null, 4), "utf-8", (err) => { if (err) throw err; });
+if (!showLastTest)
+	writeFile(timerPath, JSON.stringify(endCalculation, null, 4), "utf-8", (err) => { if (err) throw err; });
 
 if (!simple && !minimal)
 {
