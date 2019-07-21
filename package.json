@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "",
 	"scripts": {
-		"php-node": "cd ./php-node && npm run start"
+		"php-node-loops": "cd ./php-node-loops && npm run start"
 	},
 	"repository": {
 		"type": "git",

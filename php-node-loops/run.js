@@ -9,15 +9,14 @@ if (existsSync(timerPath))
 
 let [, , l = 10, loopCount = 1000, fullinfo = true] = process.argv;
 
-console.log(`running ${loopCount} loops ${l} times`);
+console.clear();
+console.log(`running ${loopCount} loops ${l} times:`);
 
 for (let i = 0; i < l; i++)
 {
 	execSync("C:\\php\\php-7.3.7\\php.exe ./loops.php " + loopCount);
 	execSync("node ./loops " + loopCount);
 }
-
-console.clear();
 
 const timers = require("./timers.json");
 
