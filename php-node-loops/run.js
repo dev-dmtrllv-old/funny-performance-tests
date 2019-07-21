@@ -15,23 +15,26 @@ const getArg = (arg, def) =>
 }
 
 const showLastTest = args.indexOf("show-last-test") !== -1;
+const tests = getArg("tests", 10);
+const loops = getArg("loops", 1000);
+const simple = args.indexOf("simple") !== -1;
+const minimal = args.indexOf("minimal") !== -1;
 
 if (showLastTest && !existsSync(timerPath))
 {
 	console.log("You need to run a test before you can see the last test results!");
 	process.exit();
 }
-else if (!showLastTest && existsSync(timerPath))
+else if (showLastTest)
 {
-	unlinkSync(timerPath);
+	console.log(`The last test ran`, loops, `loops,`, tests, `times...`);
 }
-
-const tests = getArg("tests", 10);
-const loops = getArg("loops", 1000);
-const simple = args.indexOf("simple") !== -1;
-const minimal = args.indexOf("minimal") !== -1;
-
-console.log(`running ${loops} loops, ${tests} times, with ${simple ? "simple" : minimal ? "minimal" : "extended"} information...`);
+else
+{
+	if (existsSync(timerPath))
+		unlinkSync(timerPath);
+	console.log(`running `, loops, `loops, `, tests, `times, with ${simple ? "simple" : minimal ? "minimal" : "extended"} information...`);
+}
 
 if (!showLastTest)
 	for (let i = 0; i < tests; i++)
