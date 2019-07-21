@@ -27,13 +27,13 @@ if (showLastTest && !existsSync(timerPath))
 }
 else if (showLastTest)
 {
-	console.log(`The last test ran`, loops, `loops,`, tests, `times...`);
+	console.log(`The last test ran`, +loops, `loops,`, +tests, `times...`);
 }
 else
 {
 	if (existsSync(timerPath))
 		unlinkSync(timerPath);
-	console.log(`running `, loops, `loops, `, tests, `times, with ${simple ? "simple" : minimal ? "minimal" : "extended"} information...`);
+	console.log(`running`, +loops, `loops,`, +tests, `times, with ${simple ? "simple" : minimal ? "minimal" : "extended"} information...`);
 }
 
 if (!showLastTest)
