@@ -2,6 +2,8 @@ const { execSync } = require("child_process");
 const { existsSync, unlinkSync, writeFile } = require("fs");
 const { resolve } = require("path");
 
+console.clear();
+
 const timerPath = resolve(__dirname, "./timers.json");
 
 if (existsSync(timerPath))
@@ -15,19 +17,27 @@ const getArg = (arg, def) =>
 	return i > -1 ? args[i + 1] : def;
 }
 
-let tests = getArg("tests", 10);
-let loops = getArg("loops", 1000);
-let simple = args.indexOf("simple") !== -1;
-let minimal = args.indexOf("minimal") !== -1;
+const showLastTest = args.indexOf("show-last-test") !== -1;
 
-console.clear();
+if (showLastTest && !existsSync(timerPath))
+{
+	console.log("You need to run a test before you can see the last test results!");
+	process.exit();
+}
+
+const tests = getArg("tests", 10);
+const loops = getArg("loops", 1000);
+const simple = args.indexOf("simple") !== -1;
+const minimal = args.indexOf("minimal") !== -1;
+
 console.log(`running ${loops} loops, ${tests} times, with ${simple ? "simple" : minimal ? "minimal" : "extended"} information...`);
 
-for (let i = 0; i < tests; i++)
-{
-	execSync("php.exe ./loops.php " + loops);
-	execSync("node ./loops " + loops);
-}
+if (!showLastTest)
+	for (let i = 0; i < tests; i++)
+	{
+		execSync("php.exe ./loops.php " + loops);
+		execSync("node ./loops " + loops);
+	}
 
 
 const timers = require(timerPath);
