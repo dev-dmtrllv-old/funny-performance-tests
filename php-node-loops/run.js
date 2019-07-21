@@ -6,9 +6,6 @@ console.clear();
 
 const timerPath = resolve(__dirname, "./timers.json");
 
-if (existsSync(timerPath))
-	unlinkSync(timerPath);
-
 let [, , ...args] = process.argv;
 
 const getArg = (arg, def) =>
@@ -23,6 +20,10 @@ if (showLastTest && !existsSync(timerPath))
 {
 	console.log("You need to run a test before you can see the last test results!");
 	process.exit();
+}
+else if (!showLastTest && existsSync(timerPath))
+{
+	unlinkSync(timerPath);
 }
 
 const tests = getArg("tests", 10);
