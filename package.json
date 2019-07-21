@@ -1,0 +1,19 @@
+{
+	"name": "performance-tests",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"php-node": "cd ./php-node && npm run start"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dev-dmtrllv/funny-performance-tests.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/dev-dmtrllv/funny-performance-tests/issues"
+	},
+	"homepage": "https://github.com/dev-dmtrllv/funny-performance-tests#readme"
+}
