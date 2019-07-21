@@ -2,9 +2,9 @@
 	"name": "php-node-loops",
 	"version": "1.0.0",
 	"description": "Testing node's performance against php's performance with loops",
-	"private": true,
+	"main": "./index.js",
 	"scripts": {
-		"start": "node ./run.js"
+		"start": "node ."
 	},
 	"keywords": [],
 	"author": "",
