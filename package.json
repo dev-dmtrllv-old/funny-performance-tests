@@ -1,7 +1,7 @@
 {
 	"name": "performance-tests",
 	"version": "1.0.0",
-	"description": "",
+	"description": "some funny performance tests",
 	"scripts": {
 		"php-node-loops": "cd ./php-node-loops && npm run start"
 	},
@@ -10,7 +10,7 @@
 		"url": "git+https://github.com/dev-dmtrllv/funny-performance-tests.git"
 	},
 	"keywords": [],
-	"author": "",
+	"author": "DEV.DMTRLLV",
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/dev-dmtrllv/funny-performance-tests/issues"
