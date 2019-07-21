@@ -1,10 +1,10 @@
 {
-	"name": "php-node",
+	"name": "php-node-loops",
 	"version": "1.0.0",
-	"description": "",
-	"main": "loops.js",
+	"description": "Testing node's performance against php's performance with loops",
+	"private": true,
 	"scripts": {
-		"start": "node ./run"
+		"start": "node ./run.js"
 	},
 	"keywords": [],
 	"author": "",
