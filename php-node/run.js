@@ -7,7 +7,7 @@ const timerPath = resolve(__dirname, "./timers.json");
 if (existsSync(timerPath))
 	unlinkSync(timerPath);
 
-let [, , l = 1, loopCount = 1000, fullinfo = false] = process.argv;
+let [, , l = 10, loopCount = 1000, fullinfo = true] = process.argv;
 
 console.log(`running ${loopCount} loops ${l} times`);
 
