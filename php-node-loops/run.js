@@ -25,9 +25,10 @@ console.log(`running ${loops} loops, ${tests} times, with ${simple ? "simple" : 
 
 for (let i = 0; i < tests; i++)
 {
-	execSync("C:\\php\\php-7.3.7\\php.exe ./loops.php " + loops);
+	execSync("php.exe ./loops.php " + loops);
 	execSync("node ./loops " + loops);
 }
+
 
 const timers = require(timerPath);
 
